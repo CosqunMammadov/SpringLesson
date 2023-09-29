@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="student" class="com.example.springlesson.configuration.xml_based_configuration.Student">
+        <constructor-arg name="age" value="23" />
+        <constructor-arg name="number" value="21432"/>
+    </bean>
+
+    <bean id="studentTwo" class="com.example.springlesson.configuration.xml_based_configuration.Student">
+        <property name="name" value="Cosqun"/>
+        <property name="surName" value="Mammadov"/>
+        <property name="age" value="23"/>
+        <property name="number" value="2343"/>
+        <property name="schedule">
+            <list>
+                <value>Drink</value>
+                <value>Walk</value>
+            </list>
+        </property>
+        <property name="devices">
+            <map>
+                <entry key="android" value-ref="android"/>
+                <entry key="ios" value-ref="ios"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="studentThree" class="com.example.springlesson.configuration.xml_based_configuration.Student"
+         autowire="constructor">
+    </bean>
+
+    <bean id="android" class="com.example.springlesson.configuration.xml_based_configuration.Device">
+        <property name="name" value="android"/>
+    </bean>
+
+    <bean id="ios" class="com.example.springlesson.configuration.xml_based_configuration.Device"/>
+
+</beans>
